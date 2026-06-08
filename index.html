@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>♟️ Shaxmat & Shashka</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="app">
+    <div class="header">
+      <h1 id="game-title">♟️ O'yinlar</h1>
+      <div class="header-sub" id="header-sub">O'yin tanlang</div>
+    </div>
+
+    <!-- Menu -->
+    <div id="menu-screen" class="screen active">
+      <div class="menu-cards">
+        <div class="game-card" onclick="startGame('chess')">
+          <div class="card-icon">♟️</div>
+          <div class="card-name">Shaxmat</div>
+          <div class="card-desc">Klassik shaxmat o'yini<br>AI raqib bilan</div>
+        </div>
+        <div class="game-card" onclick="startGame('checkers')">
+          <div class="card-icon">🔴</div>
+          <div class="card-name">Shashka</div>
+          <div class="card-desc">Klassik shashka o'yini<br>AI raqib bilan</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Game Screen -->
+    <div id="game-screen" class="screen">
+      <div class="game-header">
+        <button class="btn-back" onclick="goMenu()">← Orqaga</button>
+        <div class="turn-info" id="turn-info">Sizning navbatingiz</div>
+        <button class="btn-restart" onclick="restartGame()">🔄</button>
+      </div>
+
+      <div class="score-bar">
+        <div class="score-box white-score">
+          <span class="score-icon" id="player-icon">♙</span>
+          <span class="score-label">Siz</span>
+          <span class="score-num" id="player-score">0</span>
+        </div>
+        <div class="vs-badge">VS</div>
+        <div class="score-box black-score">
+          <span class="score-num" id="ai-score">0</span>
+          <span class="score-label">AI</span>
+          <span class="score-icon" id="ai-icon">♟</span>
+        </div>
+      </div>
+
+      <div class="board-wrap">
+        <div class="board" id="board"></div>
+      </div>
+
+      <div class="status-bar" id="status-bar">O'yin boshlandi!</div>
+
+      <div class="captured-row">
+        <div id="player-captured" class="captured"></div>
+        <div id="ai-captured" class="captured"></div>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal" class="modal hidden">
+      <div class="modal-box">
+        <div class="modal-icon" id="modal-icon">🏆</div>
+        <div class="modal-title" id="modal-title">G'alaba!</div>
+        <div class="modal-msg" id="modal-msg"></div>
+        <div class="modal-btns">
+          <button onclick="restartGame()">🔄 Qayta o'ynash</button>
+          <button onclick="goMenu()">🏠 Menyu</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="chess.js"></script>
+  <script src="checkers.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
